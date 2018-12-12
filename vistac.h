@@ -20,12 +20,10 @@
 #include<stdatomic.h>
 #include<stdbool.h>
 #include<stddef.h>
-#include<stdint.h> 
+#include<stdint.h>
 #include<stdnoreturn.h>
 #include<tgmath.h>
-#include<threads.h>
 #include<time.h>
-#include<uchar.h>
 #include<wchar.h>
 #include<wctype.h>
 
