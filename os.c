@@ -1,62 +1,48 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include<conio.h>
-#include<string.h>
-int createfile(char loc[]){
-	char name[500000],content[500000];
 
-    FILE * fPtr;
-    puts("Enter File Name");
-gets(name);
-puts("Enter File Content");
-gets(content);
-strcat(loc,name);
-    fPtr = fopen(loc, "w");
+#include"vistac.h"
+char loc[500000];
+void cmd();
+int main()
+{
+	
+puts("Welcome to New CMD Developed by RICIS Hostel Team \n Enter Location to Work on Hit enter to work in default");
+gets(loc);
+
+cmd();
 
 
-    if(fPtr == NULL)
-    {
-       return 0;
-    }
-    fputs(content, fPtr);
- fclose(fPtr);
-   return 1;
+
+    return 0;
 }
-void np(int a){
+void cmd(){
+	char c[5000];
+	puts("\n ......................................................................................................");
+	gets(c);
 
-  printf("%d\n",a);
-
- }
-void cp(char a){
-printf("%c\n",a);
-
-}
-void p(char a[]){
-printf("%s\n",a);
-
-
-}
-int count(char a[]){
-int count,b=0;
-for(count=0;a[count]!='\0';count++){
-b=b+1;
-
-}
-return b;
-}
-int delete(char name[]){
-	if(remove(name)){
-		return 0;
+if(strcmp(c,"createfile")==0){
+	if(createfile(loc)==1){
+		puts("File Created");
 	}else{
-		return 1;
+		puts("Created Failed");
 	}
+cmd();
+}else if(strcmp(c,"exit")==0){
+	puts("You are Exiting.......");
+	exit(0);
+cmd();
+}else if(strcmp(c,"clear")==0){
+	puts("This function is not start now");
+cmd();
+}else if(strcmp(c,"reload")==0){
+	puts("You are Reloading");
+main();
+}else if(strcmp(c,"printlocation")==0){
+	puts(loc);
+cmd();
+}else{
+	printf("%s is not a external or Internal Command",c);
+	cmd();
 }
-int move(char loc[]){
-	char oldname[5000000],newname[100];
-	strcat(loc,oldname);
-	if(rename (loc,newname)){
-return 0;
-	}else{
-		return 1;
-	}
+
+
 }
