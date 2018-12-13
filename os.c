@@ -1,10 +1,10 @@
 
 #include"vistac.h"
-char loc[500000];
+char loc[500000],el[5000000];
 void cmd();
 int main()
 {
-	
+
 puts("Welcome to New CMD Developed by RICIS Hostel Team \n Enter Location to Work on Hit enter to work in default");
 gets(loc);
 
@@ -36,13 +36,31 @@ cmd();
 }else if(strcmp(c,"reload")==0){
 	puts("You are Reloading");
 main();
-}else if(strcmp(c,"printlocation")==0){
+}else if(strcmp(c,"printlocation")==0 || strcmp(c,"pl")==0){
 	puts(loc);
+cmd();
+}else if(strcmp(c,"changelocation")==0 || strcmp(c,"cl")==0){
+	gets(loc);
+cmd();
+}else if(strcmp(c,"list")==0){
+	list(loc);
+cmd();
+}else if(strcmp(c,"delete")==0){
+	if(delete(loc)==1){
+        printf("%s Deleted",loc);
+	}else{
+	    printf("%s Delete Failed",loc);
+
+	}
+cmd();
+}else if(strcmp(c,"el")==0){
+
+gets(el);
+strcat(loc,el);
 cmd();
 }else{
 	printf("%s is not a external or Internal Command",c);
 	cmd();
 }
-
 
 }
