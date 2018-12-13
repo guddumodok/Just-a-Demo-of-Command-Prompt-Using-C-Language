@@ -27,6 +27,8 @@
 #include<wchar.h>
 #include<wctype.h>
 
+#include <sys/types.h>
+#include <dirent.h>
 int createfile(char loc[]){
 	char name[500000],content[500000];
 
@@ -84,4 +86,22 @@ return 0;
 	}else{
 		return 1;
 	}
+}
+int list(const char *path){
+
+struct dirent *dp;
+    DIR *dir = opendir(path);
+
+    // Unable to open directory stream
+    if (!dir)
+        puts("Your Directory is Wrong  ! Enter \'changelocation\' than click enter to change the loaction");
+
+
+    while ((dp = readdir(dir)) != NULL)
+    {
+        printf("%s\n", dp->d_name);
+    }
+
+    // Close directory stream
+    closedir(dir);
 }
